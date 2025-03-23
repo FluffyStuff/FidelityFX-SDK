@@ -26,6 +26,8 @@ if (NOT DEFINED BUILD_TYPE)
     message(FATAL_ERROR "No BUILD_TYPE specified!)")
 endif()
 
+set(SUBDIR samples)
+
 if( BUILD_TYPE STREQUAL CAULDRON)
 	# Standalone cauldron builds VK and DX12
 	set(CAULDRON_VK 1)
@@ -37,6 +39,14 @@ elseif(BUILD_TYPE STREQUAL SAMPLES_DX12)
 elseif(BUILD_TYPE STREQUAL SAMPLES_VK)
 	set(CAULDRON_VK 1)
 	set(SOLUTION_NAME "FidelityFX SDK VK Samples")
+elseif(BUILD_TYPE STREQUAL FLUID_DX12)
+	set(CAULDRON_DX12 1)
+	set(SOLUTION_NAME "Fluid Rendering DX12")
+	set(SUBDIR fluid)
+elseif(BUILD_TYPE STREQUAL FLUID_VK)
+	set(CAULDRON_VK 1)
+	set(SOLUTION_NAME "Fluid Rendering VK")
+	set(SUBDIR fluid)
 else()
 	message(FATAL_ERROR "Invalid BUILD_TYPE specified! BUILD_TYPE must be one of CAULDRON, SAMPLES_VK, SAMPLES_DX12")
 endif()
@@ -148,7 +158,7 @@ if(CAULDRON_VK)
 endif()
 
 # Build all other effect samples
-add_subdirectory(samples)
+add_subdirectory(${SUBDIR})
 
 # Set a startup project
 message(STATUS "Default project set to ${START_PROJECT}")

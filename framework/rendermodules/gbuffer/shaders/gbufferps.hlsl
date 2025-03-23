@@ -132,7 +132,7 @@ GBufferOutput MainPS(VS_SURFACE_OUTPUT SurfaceInput
 
     GBuffer.BaseColorAlpha      = BaseColorAlpha;
     GBuffer.AoRoughnessMetallic = float4(AoRoughnessMetallic, 0.f);
-    GBuffer.AoRoughnessMetallic.r = 1.0f; // Temp for SSAO
+    GBuffer.AoRoughnessMetallic.r += 0.85f; // Temp for SSAO
 
     float3 normals = GetPixelNormal(SurfaceInput, Textures, SceneInfo, AllTextures, AllSamplers, SceneInfo.MipLODBias, isFrontFace);
     // Compress normal range from [-1, 1] to [0, 1] to fit in unsigned R11G11B10 format

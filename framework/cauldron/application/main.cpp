@@ -36,6 +36,10 @@
     // Sample render module
     #include AS_STRING(PATH(SampleInclude))
 
+#elif defined(FrameworkIncludePath)
+
+    #include FrameworkIncludePath
+
 // Otherwise use the default
 #else
     #include "sample/sample.h"  // Sample defines for instantiation and naming

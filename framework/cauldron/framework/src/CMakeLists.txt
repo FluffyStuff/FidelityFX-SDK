@@ -204,7 +204,7 @@ add_library(backend_interface_stub INTERFACE)
 # Runtime shader recompiler render module uses the backend_shader_reloader library
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/render/backend_shader_reloader)
 
-target_link_libraries(backend_interface_static PUBLIC backend_shader_reloader_stub ffx_backend_native)
+target_link_libraries(backend_interface_static PUBLIC backend_shader_reloader_stub)
 target_link_libraries(backend_interface_dynamic PUBLIC backend_shader_reloader_impl)
 target_link_libraries(backend_interface_stub INTERFACE backend_shader_reloader_stub)
 

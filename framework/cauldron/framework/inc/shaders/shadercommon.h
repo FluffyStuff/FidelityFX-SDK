@@ -97,7 +97,8 @@ struct SceneLightingInformation
     LightInformation    LightInfo[MAX_LIGHT_COUNT];
     int                 LightCount;
     int                 bUseScreenSpaceShadowMap;
-    int                 Padding[2];
+    int                 Padding1;
+    int                 Padding2;
 };
 
 struct UpscalerInformation
@@ -115,7 +116,9 @@ struct SceneInformation
     CameraInformation   CameraInfo;
     UpscalerInformation UpscalerInfo;
     float               MipLODBias;
-    float               Padding[3];
+    float               Padding1;
+    float               Padding2;
+    float               Padding3;
 };
 
 enum class DisplayMode
